@@ -18,6 +18,10 @@ func Unpack(input string) (string, error) {
 
 		atoiInt, err := strconv.Atoi(string(input[i]))
 
+		if i == 0 && err == nil {
+			return "", ErrInvalidString
+		}
+
 		if err != nil {
 			b.WriteString(string(input[i]))
 		} else {
